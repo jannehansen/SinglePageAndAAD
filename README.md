@@ -20,6 +20,8 @@ This repo contains sample apps for my blog article **[Call Azure AD protected Fu
 Suomeksi:
 Repo sisältää esimerkkisovellukset blogiartikkeliini  **[Azure AD suojattujen funktioiden kutsuminen Single Page – sovelluksista](https://jannehansen.com/fi/aad-funktio-kutsu-spa/)**.
 
+My examples are based originally on MS 
+
 ## Description
 
 These examples show how to authenticate users in plain, vanilla javascript single page application.
@@ -45,9 +47,18 @@ You need a web server (like apache, nginx or such) to place the html files to te
 This is because Azure AD authentication needs to be configured with a list of http(s)
 addresses where to go after login redirection.
 
-## Setup
+## Setup function app registration for Azure AD
 
-1. [Register a new application](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-app-registration) in the [Azure Portal](https://portal.azure.com). Ensure that the application is enabled for the [authorization code flow with PKCE](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow). This will require that you redirect URI configured in the portal is of type `SPA`. You need to add uri for each of the samples like https://myserver.com/plainlogin, https://myserver.com/graphapi, https://myserver.com/functioncall.
+Please see the blog article for more detailed explanations.
+
+1. [Configure your Azure Functions app to use Azure AD login](https://docs.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad). You'll "Expose an API" here for your SPA to use. Notice when you are creating the scope here: You'll need it both in the SPA app registration, and to copypaste it in the SPA source code.
+
+## Setup single page app registration
+
+Please see the blog article for more detailed explanations.
+
+1. [Register a new frontend application](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-app-registration) in the [Azure Portal](https://portal.azure.com). Ensure that the application is enabled for the [authorization code flow with PKCE](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow). This will require that you redirect URI configured in the portal is of type `SPA`. You need to add uri for each of the samples like https://myserver.com/plainlogin, https://myserver.com/graphapi, https://myserver.com/functioncall.
+2. Configure SPA app registration to "Use API"
 2. Open the authConfig.js file and provide the required configuration values.
 
 ## Running the sample
