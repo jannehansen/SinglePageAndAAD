@@ -7,11 +7,20 @@ products:
 - microsoft-authentication-library
 - azure-active-directory
 - ms-graph
+- azure-ad-protected-function
 description: "A simple JavaScript Single-Page Application using the Auth Code flow w/ PKCE"
 urlFragment: "ms-identity-javascript-v2"
 ---
 
 # Azure AD authentication in JavaScript Single-page Application
+
+In English:
+This repo contains sample apps for my blog article **[Call Azure AD protected Functions from Single Page App](https://jannehansen.com/call-aad-functions-from-spa/)**.
+
+Suomeksi:
+Repo sisältää esimerkkisovellukset blogiartikkeliini  **[Azure AD suojattujen funktioiden kutsuminen Single Page – sovelluksista](https://jannehansen.com/fi/aad-funktio-kutsu-spa/)**.
+
+## Description
 
 These examples show how to authenticate users in plain, vanilla javascript single page application.
 The credentials are then used to call Azure AD protected MS GraphAPI and your own Azure AD protected function.
@@ -28,7 +37,7 @@ The examples show how to configure [MSAL.JS 2.x](https://www.npmjs.com/package/@
 | `index.html`      | Contains the UI of the sample.             |
 | `authRedirect.js` | Authentication with redirect flow implementation, for each example it's own file. |
 | `authConfig.js`   | Contains configuration parameters for each sample. |
-| `LICENSE`         | The license for the sample.                |
+| `LICENSE`         | MIT license for the samples.               |
 
 ## Prerequisites
 
