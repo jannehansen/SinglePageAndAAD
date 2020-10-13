@@ -1,0 +1,62 @@
+<html><head><title>Login and Azure AD protected function call</title>
+    <!-- msal.min.js can be used in the place of msal.js; included msal.js to make debug easy -->
+    <script src="https://alcdn.msauth.net/browser/2.1.0/js/msal-browser.js" integrity="sha384-M9bRB06LdiYadS+F9rPQnntFCYR3UJvtb2Vr4Tmhw9WBwWUfxH8VDRAFKNn3VTc/" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+<h1>Login and call your own AAD protected function.</h1>
+
+<p>
+    This page tests first logging user in, and then calling your own Azure AD functions with acquired user
+    credentials. <b>signIn() and signOut()</b> functions are defined in <b>authRedirect.js</b> file.
+    Notices: I've hardcoded signIn() and getMyFunctionData() callbacks in authRedirect.js as
+    <b>loginCallback() &amp; myFunctionCallback()</b>, which both are defined in this index.html file. 
+    You may want to change that in your own implementation.
+</p>
+
+<hr>
+
+<h3>Account info</h3>
+
+<code><span id="accountinfo">Not logged in yet... <a href="javascript:signIn();">Click here to sign in</a>!</span></code>
+
+<h3>Your function call results</h3>
+
+<code><span id="functionresults">No info yet. Login, and then <a href="javascript:getMyFunctionData();">Click here</a> to call your own Azure AD protected function.</span></code>
+
+<hr>
+<p>
+    <a href="javascript:signOut();">Click here to sign out</a><br>
+    <a href="../">Back to top</a>
+</p>
+
+<!-- importing app scripts (load order is important) -->
+<script type="text/javascript" src="./authConfig.js"></script>
+
+<!-- 
+These examples uses redirect-method (the other option would have been using popup window for login)
+If you'd like to use the popup, see MS example on how to use this: https://github.com/Azure-Samples/ms-identity-javascript-v2
+-->
+<script type="text/javascript" src="./authRedirect.js"></script>
+
+<script>
+
+    var result;
+
+    // Callback for login
+    function loginCallback(account) {
+
+        // Show the response account json object we get as result
+        var accountAsString = JSON.stringify(account, null, 2); // spacing level = 2
+        document.getElementById("accountinfo").textContent=accountAsString;
+    }
+
+    function myFunctionCallback(data) {
+        document.getElementById("functionresults").textContent=data;
+    }
+
+</script>
+
+</body>
+</html>

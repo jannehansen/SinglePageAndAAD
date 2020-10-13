@@ -1,0 +1,53 @@
+<html><head><title>LoginTest</title>
+    <!-- msal.min.js can be used in the place of msal.js; included msal.js to make debug easy -->
+    <script src="https://alcdn.msauth.net/browser/2.1.0/js/msal-browser.js" integrity="sha384-M9bRB06LdiYadS+F9rPQnntFCYR3UJvtb2Vr4Tmhw9WBwWUfxH8VDRAFKNn3VTc/" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+<h1>Single page app login example</h1>
+
+<p>
+    This page tests "vanilla" login (and nothing else) from a single page app. 
+    <b>signIn() and signOut()</b> functions are defined in <b>authRedirect.js</b> file.
+    Notice: I've hardcoded signIn() callback function in authRedirect.js as <b>loginCallback()</b>,
+    which is implemented in this index.html file. You may want to change that in your own implementation.
+</p>
+
+<hr>
+
+<h3>Account info</h3>
+
+<code><span id="accountinfo">Not logged in yet... <a href="javascript:signIn();">Click here to sign in</a>!</span></code>
+
+<hr>
+
+<p>
+    <a href="javascript:signOut();">Click here to sign out</a><br>
+    <a href="../">Back to top</a>
+</p>
+
+
+<!-- This defines your -->
+<script type="text/javascript" src="./authConfig.js"></script>
+
+<!-- 
+These examples uses redirect-method (the other option would have been using popup window for login)
+If you'd like to use the popup, see MS example on how to use this: https://github.com/Azure-Samples/ms-identity-javascript-v2
+-->
+<script type="text/javascript" src="./authRedirect.js"></script>
+
+<script>
+
+    // Callback for login
+    function loginCallback(account) {
+
+        // Show the response account json object we get as result
+        var accountAsString = JSON.stringify(account, null, 2); // spacing level = 2
+        document.getElementById("accountinfo").textContent=accountAsString;
+    }
+
+</script>
+
+</body>
+</html>
