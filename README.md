@@ -20,7 +20,7 @@ This repo contains sample apps for my blog article **[Call Azure AD protected Fu
 Suomeksi:
 Repo sisältää esimerkkisovellukset blogiartikkeliini  **[Azure AD suojattujen funktioiden kutsuminen Single Page – sovelluksista](https://jannehansen.com/fi/aad-funktio-kutsu-spa/)**.
 
-My examples are based originally on MS 
+My simplified examples are originally based on MS **[MSAL.js 2.x Vanilla JavaScript Single-page Application](https://github.com/Azure-Samples/ms-identity-javascript-v2)**
 
 ## Description
 
