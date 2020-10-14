@@ -74,6 +74,7 @@ function getTokenRedirect(request) {
 // *******************************************************
 
 // This is the scope used for function call
+// Change this to match your own!
 const functionCallRequest = {
     scopes: ["https://anotherv.azurewebsites.net/user_impersonation"]
 };
@@ -98,6 +99,7 @@ function callMyFunction(accessToken) {
           myFunctionCallback(this.responseText);
     }
 
+    // My function endpoint. Change to match yours!
     xmlHttp.open("GET", "https://anotherv.azurewebsites.net/api/Apikutsu?name=world", true); // true for asynchronous
     xmlHttp.setRequestHeader('Authorization', 'Bearer ' + accessToken);
     xmlHttp.send();
